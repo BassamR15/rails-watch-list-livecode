@@ -9,7 +9,7 @@ puts "Database cleaned"
 url = "http://tmdb.lewagon.com/movie/top_rated"
 movies = JSON.parse(URI.open(url).read)["results"]
 
-movies.first(10).each do |movie|
+movies.each do |movie|
   puts "Creating #{movie["title"]}"
     base_poster_url = "https://image.tmdb.org/t/p/original"
     Movie.create(
